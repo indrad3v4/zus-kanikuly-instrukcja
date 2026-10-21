@@ -109,7 +109,11 @@
     var list = visible();
     var doneCount = list.filter(isDone).length;
     S.finished = true; save(); paint();
-    $('#finalStat').textContent = doneCount + ' из ' + list.length + ' уровней закрыто';
+    $('#finalStat').textContent = doneCount === list.length
+      ? 'Все ' + list.length + ' уровней закрыты'
+      : doneCount + ' из ' + list.length + ' уровней закрыто – остальные можно пройти потом';
+    var backBtn = $('#backToLevels');
+    if (backBtn) backBtn.style.display = doneCount === list.length ? 'none' : '';
     track('finish', { done: doneCount });
   }
 
@@ -150,6 +154,11 @@
         if (act === 'next') go(1);
         else if (act === 'prev') go(-1);
         else if (act === 'finish') finish();
+        else if (act === 'back') {
+          var list = visible();
+          var idx = list.findIndex(function (l) { return !isDone(l); });
+          S.finished = false; S.i = idx > -1 ? idx : 0; save(); paint(); track('back_to_levels');
+        }
         else if (act === 'reset') {
           S = { path: null, checks: {}, i: 0 };
           save(); $$('.fork button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
