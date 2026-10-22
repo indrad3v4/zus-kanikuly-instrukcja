@@ -18,20 +18,22 @@
 <title>Wakacje składkowe: пошаговая инструкция RWS</title>
 <meta name="description" content="Два маршрута по экранам eZUS: первая подача RWS и повторная с справкой SUDOP.">
 <style>
-:root{--navy:#0E1B2C;--panel:#F6F3EC;--ink:#182230;--muted:#5A6572;--gold:#C69B3C;--gold-deep:#8A6A1F;--line:#E3DCCB;--red:#B4432C}
+@font-face{font-family:"Montserrat";src:url(fonts/montserrat-sub.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Lora";src:url(fonts/lora.woff2) format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+:root{--sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;--navy:#0E1B2C;--panel:#F6F3EC;--ink:#182230;--muted:#5A6572;--gold:#C69B3C;--gold-deep:#8A6A1F;--line:#E3DCCB;--red:#B4432C}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--panel);color:var(--ink);font:16px/1.55 Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif}
-h1,h2,.brand{font-family:Lora,Georgia,serif;font-weight:600;text-wrap:balance}
+body{margin:0;background:var(--panel);color:var(--ink);font:16px/1.55 var(--sans)}
+h1,h2,.brand{font-family:"Lora",Georgia,serif;font-weight:600;text-wrap:balance}
 p,li{text-wrap:pretty}
 a{color:inherit}
 .top{background:var(--navy);color:#fff;padding:18px 20px}
 .top-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.mark{font:700 22px/1 var(--sans);color:var(--gold);letter-spacing:0}
+.mark{font-family:var(--sans);font-weight:700;font-size:22px;line-height:1;color:var(--gold);letter-spacing:0}
 .brand-t{display:flex;flex-direction:column;line-height:1.15}
-.brand-t b{font-family:Lora,serif;font-size:20px}
+.brand-t b{font-family:"Lora",serif;font-size:20px}
 .brand-t small{font-size:14px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
-.top .pdf{margin-left:auto;background:var(--gold);color:#20180A;border:0;border-radius:3px;padding:13px 18px;font:600 16px Montserrat,sans-serif;cursor:pointer}
+.top .pdf{margin-left:auto;background:var(--gold);color:#20180A;border:0;border-radius:3px;padding:13px 18px;font-family:var(--sans);font-weight:600;font-size:16px;cursor:pointer}
 .shell{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:40px;padding:0 20px}
 .shell.routed{grid-template-columns:minmax(0,1fr) 288px}
 .shell:not(.routed) .main{max-width:860px}
@@ -59,9 +61,9 @@ a{color:inherit}
 .choose button:hover{background:var(--panel)}
 .choose b{display:block;font:600 20px Lora,serif;margin-bottom:6px}
 .choose span{display:block;font-size:14px;color:var(--muted);line-height:1.45}
-.choose button.pri{background:var(--navy);border-color:var(--navy);color:#fff}
-.choose button.pri span{color:#C9D2DC}
-.choose button.pri:hover{background:#16283F}
+.choose button.pri{background:#fff;border-color:var(--navy);color:var(--ink)}
+.choose button.pri span{color:var(--muted)}
+.choose button.pri:hover{background:var(--panel)}
 .jump{display:none;position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 0;overflow-x:auto}
 .jump a{display:flex;align-items:center;gap:7px;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:8px 13px;font-size:14px;white-space:nowrap;color:var(--muted)}
 .jump a b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px}
@@ -93,14 +95,29 @@ a{color:inherit}
 .foot p{margin:0 0 6px;font-size:14px}
 .foot small{display:block;max-width:1180px;margin:20px auto 0;font-size:14px;opacity:.72;line-height:1.6}
 @media (max-width:960px){
+  .top{padding:12px 16px}
+  .top-in{flex-wrap:nowrap;gap:10px}
+  .top .pdf{padding:9px 12px;font-size:13px;white-space:nowrap}
+  .brand-t small{font-size:12px;letter-spacing:.06em}
+  .top .pdf{padding:10px 12px}
+  .shell{padding:0 16px}
+  .hero{padding:20px 0 4px}
+  .hero h1{font-size:clamp(24px,7.2vw,32px)}
+  .tocm summary{min-height:48px;display:flex;align-items:center;margin:0 -14px;padding:0 14px}
+  .main{padding-bottom:calc(36px + env(safe-area-inset-bottom))}
   .shell{grid-template-columns:1fr;gap:0}
   .side{display:none!important}
-  .jump{display:block}
-  .tocm{display:block}
+  .jump.on{display:block}
+  .tocm{display:none!important}
   .choose{grid-template-columns:1fr}
   .step{gap:12px;padding:26px 0}
   .step .num{width:44px;height:44px;font-size:20px}
   .foot-in{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .brand-t small{display:none}
+  .top-in{gap:8px}
+  .top .pdf{font-size:12px;padding:10px 10px}
 }
 @media print{
   @page{margin:16mm 14mm}
@@ -231,6 +248,7 @@ function buildSide(route){
   side.innerHTML = `<p class="cap">${route==='first'?'Первая подача':'Повторная подача'}</p>` +
     items.map(link).join('') +
     `<div class="switch"><button onclick="setRoute(null)">Изменить маршрут</button></div>`;
+  jump.classList.add('on');
   jump.querySelector('.jump-in').innerHTML = items.map(s => `<a href="#${s.id}" data-to="${s.id}"><b>${s.num}</b><span>${s.title}</span></a>`).join('');
   document.getElementById('tocm-in').innerHTML = items.map(link).join('');
   side.classList.add('on'); document.getElementById('shell').classList.add('routed');
