@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wakacje składkowe: пошаговая инструкция RWS</title>
-<meta name="description" content="12 экранов eZUS: как подать RWS на wakacje składkowe. Отдельный раздел для тех, кто уже получал de minimis.">
+<meta name="description" content="Два маршрута по экранам eZUS: первая подача RWS и повторная с справкой SUDOP.">
 <style>
 :root{--navy:#0E1B2C;--panel:#F6F3EC;--ink:#182230;--muted:#4C5765;--gold:#C79A3C;--line:#E3DCCB;--red:#B4432C}
 *{box-sizing:border-box}
@@ -19,33 +19,42 @@ a{color:inherit}
 .brand-t b{font-family:Lora,serif;font-size:17px}
 .brand-t small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
 .top .pdf{margin-left:auto;background:var(--gold);color:#20180A;border:0;border-radius:3px;padding:13px 18px;font:600 15px Montserrat,sans-serif;cursor:pointer}
-.shell{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:262px minmax(0,1fr);gap:40px;padding:0 20px}
-.side{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:26px 0}
-.side b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;margin-right:9px;flex:0 0 auto}
-.side a{display:flex;align-items:center;gap:2px;text-decoration:none;font-size:14px;color:var(--muted);padding:7px 8px;border-radius:3px;line-height:1.25}
+.shell{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:40px;padding:0 20px}
+.shell.routed{grid-template-columns:272px minmax(0,1fr)}
+.shell:not(.routed) .main{max-width:860px}
+.side{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:26px 0;display:none}
+.side.on{display:block}
+.side .cap{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;padding:0 8px}
+.side a{display:flex;align-items:flex-start;gap:9px;text-decoration:none;font-size:14px;color:var(--muted);padding:8px;border-radius:3px;line-height:1.3}
+.side a b{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 4px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;flex:0 0 auto}
 .side a:hover{background:var(--panel);color:var(--ink)}
-.side a.sep{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);color:var(--red);font-weight:600}
-.side a.sep b{background:var(--red)}
+.side a.act{background:var(--panel);color:var(--ink);font-weight:600}
+.side a.act b{background:var(--gold);color:#20180A}
+.side a.prep b{background:var(--red)}
+.side .switch{margin:18px 8px 0;border-top:1px solid var(--line);padding-top:14px}
+.side .switch button{width:100%;text-align:left;background:none;border:1px solid var(--line);border-radius:3px;padding:10px 12px;font:600 13px Montserrat,sans-serif;color:var(--navy);cursor:pointer}
 .main{min-width:0;padding-bottom:50px}
 .hero{padding:34px 0 6px}
 .hero .kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
-.hero h1{font-size:clamp(28px,4.6vw,42px);line-height:1.08;margin:0 0 14px;letter-spacing:-.01em}
-.hero p{font-size:18px;max-width:56ch;margin:0 0 16px}
-.pick{border:2px solid var(--navy);border-radius:4px;padding:18px 20px;margin:20px 0 10px;background:var(--panel)}
-.pick p{margin:0 0 12px;font-size:17px}
-.pick .cases{display:grid;gap:10px;grid-template-columns:1fr 1fr}
-.pick a{display:block;text-decoration:none;border:1.5px solid var(--navy);border-radius:3px;padding:14px 16px;background:#fff}
-.pick a b{display:block;font-size:17px}
-.pick a span{font-size:14px;color:var(--muted)}
-.pick a.go{background:var(--navy);color:#fff}
-.pick a.go span{color:#C9D2DC}
-.jump{display:none;position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.jump-in{display:flex;gap:8px;padding:0 20px;width:max-content}
+.hero h1{font-size:clamp(28px,4.6vw,42px);line-height:1.08;margin:0 0 12px;letter-spacing:-.01em}
+.hero p.sub{font-size:18px;max-width:56ch;margin:0 0 18px}
+.choose{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:8px 0 6px}
+.choose button{text-align:left;cursor:pointer;border:2px solid var(--navy);border-radius:4px;background:#fff;padding:20px 20px 18px;font-family:inherit}
+.choose button:hover{background:var(--panel)}
+.choose b{display:block;font:600 20px Lora,serif;margin-bottom:6px}
+.choose span{display:block;font-size:14px;color:var(--muted);line-height:1.45}
+.choose button.pri{background:var(--navy);border-color:var(--navy);color:#fff}
+.choose button.pri span{color:#C9D2DC}
+.choose button.pri:hover{background:#16283F}
+.jump{display:none;position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 0;overflow-x:auto}
 .jump a{display:flex;align-items:center;gap:7px;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:8px 13px;font-size:13px;white-space:nowrap;color:var(--muted)}
 .jump a b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px}
-.step{display:flex;gap:18px;padding:32px 0;border-bottom:1px solid var(--line)}
+.jump a.act{border-color:var(--gold);color:var(--ink)}
+.jump-in{display:flex;gap:8px;padding:0 20px;width:max-content}
+.step{display:flex;gap:18px;padding:32px 0;border-bottom:1px solid var(--line);scroll-margin-top:70px}
 .step .num{flex:0 0 auto;width:52px;height:52px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font:600 22px Lora,serif}
-.step.rep .num{background:var(--red);font-size:17px}
+.step.pre .num{background:var(--muted);font-size:17px}
+.step.prep .num{background:var(--red);font-size:17px}
 .step .body{min-width:0;flex:1}
 .step h2{font-size:clamp(20px,3vw,26px);line-height:1.25;margin:6px 0 8px}
 .step .lead{margin:0 0 12px;color:var(--muted);font-size:17px}
@@ -54,14 +63,11 @@ a{color:inherit}
 .shot{margin:0 0 14px}
 .shot img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:3px}
 .shot figcaption{font-size:12px;color:var(--muted);margin-top:6px}
-.sect{margin:44px 0 0;padding:16px 20px;background:var(--red);color:#fff;border-radius:3px}
-.sect b{display:block;font-family:Lora,serif;font-size:22px}
-.sect span{font-size:14px;opacity:.92}
 .note{margin:26px 0 0;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:3px;padding:16px 18px;background:var(--panel)}
 .note h2{font-size:19px;margin:0 0 8px}
 .note p,.note li{font-size:15px}
 .links{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.links li{border:1px solid var(--line);border-radius:3px;padding:12px 14px}
+.links li{border:1px solid var(--line);border-radius:3px;padding:12px 14px;background:#fff}
 .links a{display:block;font-weight:600;text-decoration:none}
 .links span{font-size:13px;color:var(--muted)}
 .foot{background:var(--navy);color:#C9D2DC;padding:34px 20px}
@@ -71,9 +77,9 @@ a{color:inherit}
 .foot small{display:block;max-width:1180px;margin:20px auto 0;font-size:12px;opacity:.72;line-height:1.6}
 @media (max-width:960px){
   .shell{grid-template-columns:1fr;gap:0}
-  .side{display:none}
+  .side{display:none!important}
   .jump{display:block}
-  .pick .cases{grid-template-columns:1fr}
+  .choose{grid-template-columns:1fr}
   .step{gap:12px;padding:26px 0}
   .step .num{width:44px;height:44px;font-size:19px}
   .foot-in{grid-template-columns:1fr}
@@ -81,18 +87,16 @@ a{color:inherit}
 @media print{
   @page{margin:16mm 14mm}
   body{font-size:11pt}
-  .jump,.pick,.top .pdf,.side{display:none!important}
+  .jump,.choose,.top .pdf,.side{display:none!important}
   .shell{grid-template-columns:1fr;padding:0}
   .top{background:#fff;color:#000;padding:0 0 10pt;border-bottom:1.5pt solid #0E1B2C}
   .mark{color:#0E1B2C;border-color:#0E1B2C}
   .brand-t small{opacity:1;color:#333}
-  .hero{padding:0 0 10pt}
   .hero h1{font-size:22pt}
   .step{padding:12pt 0}
   .step h2{break-after:avoid-page}
   .shot{break-inside:avoid-page;margin-bottom:8pt}
   .shot img{max-height:150mm;width:auto;max-width:100%;margin:0 auto}
-  .sect{break-before:page;background:#fff;color:#B4432C;border:1.5pt solid #B4432C;padding:8pt}
   .foot{background:#fff;color:#333;border-top:1pt solid #999}
   .foot a{color:#000}
 }
@@ -105,165 +109,84 @@ a{color:inherit}
   <button class="pdf" onclick="window.print()">Сохранить в PDF</button>
 </div></header>
 
-<div class="shell">
-<nav class="side" aria-label="Шаги"><a href="#login-ezus"><b>1</b>Вход в eZUS</a><a href="#wniosek"><b>2</b>Informacje ogólne i wybór rodzaju wniosku</a><a href="#platnik"><b>3</b>Dane płatnika</a><a href="#miesiac"><b>4</b>Miesiąc, za który składany jest wniosek</a><a href="#oswiadczenia"><b>5</b>Oświadczenia</a><a href="#dm1"><b>6</b>Pomoc de minimis</a><a href="#dm2"><b>7</b>Pomoc de minimis</a><a href="#dm3"><b>8</b>Pomoc de minimis</a><a href="#dm4"><b>9</b>Pomoc de minimis</a><a href="#zalaczniki-b"><b>10</b>Załączniki</a><a href="#podsumowanie"><b>11</b>Podsumowanie</a><a href="#podpis"><b>12</b>Podpis i UPO</a><a class="sep" href="#repeat-start"><b>A</b>Если de minimis уже была</a></nav>
+<div class="shell" id="shell">
+<nav class="side" id="side" aria-label="Шаги"></nav>
 <div class="main">
-<nav class="jump" aria-label="Шаги"><div class="jump-in"><a href="#login-ezus"><b>1</b><span>Вход в eZUS</span></a><a href="#wniosek"><b>2</b><span>Informacje ogólne i wybór rodzaju wniosku</span></a><a href="#platnik"><b>3</b><span>Dane płatnika</span></a><a href="#miesiac"><b>4</b><span>Miesiąc, za który składany jest wniosek</span></a><a href="#oswiadczenia"><b>5</b><span>Oświadczenia</span></a><a href="#dm1"><b>6</b><span>Pomoc de minimis</span></a><a href="#dm2"><b>7</b><span>Pomoc de minimis</span></a><a href="#dm3"><b>8</b><span>Pomoc de minimis</span></a><a href="#dm4"><b>9</b><span>Pomoc de minimis</span></a><a href="#zalaczniki-b"><b>10</b><span>Załączniki</span></a><a href="#podsumowanie"><b>11</b><span>Podsumowanie</span></a><a href="#podpis"><b>12</b><span>Podpis i UPO</span></a></div></nav>
-<div class="hero">
-  <p class="kick">Инструкция · обновлено 22.10.2026</p>
-  <h1>Wakacje składkowe: 12 экранов eZUS</h1>
-  <p>Один месяц без взносов на социальное страхование. Идёте по экранам сверху вниз и нажимаете то, что написано. Выбирать ничего не нужно.</p>
-  <div class="pick">
-    <p><b>С чего начать?</b> Отметьте свой случай – страница сразу перейдёт на нужный шаг.</p>
-    <div class="cases">
-      <a class="go" href="#login-ezus"><b>Подаю впервые</b><span>Начинаем с шага 1</span></a>
-      <a href="#repeat-start"><b>Уже получал de minimis</b><span>Сначала справка SUDOP, потом шаг 2</span></a>
-    </div>
+<nav class="jump" id="jump" aria-label="Шаги"><div class="jump-in"></div></nav>
+<div class="hero" id="hero">
+  <p class="kick">Arkkona Biuro · инструкция · 22.10.2026</p>
+  <h1>Wakacje składkowe: заявление RWS в eZUS</h1>
+  <p class="sub">Один месяц без взносов на социальное страхование. Выберите свой случай — дальше пойдёте по экранам, ничего искать не нужно.</p>
+  <div class="choose">
+    <button class="pri" onclick="setRoute('first')"><b>Подаю впервые</b><span>Первый раз в этом году. Начинаем с вида заявления.</span></button>
+    <button onclick="setRoute('repeat')"><b>Уже получал(а) de minimis</b><span>Сначала справка из SUDOP, потом заявление.</span></button>
   </div>
 </div>
 
-<section class="step" id="login-ezus">
-  <div class="num" aria-hidden="true">1</div>
-  <div class="body">
-    <h2>Вход в eZUS</h2>
-    <p class="lead">Открываем кабинет на zus.pl – дальше все экраны внутри него.</p>
-    <ol class="do"><li>На zus.pl нажать «Zaloguj do PUE/eZUS».</li><li>Войти через Profil Zaufany или банк.</li><li>В меню выбрать «Katalog usług» → «Wakacje składkowe».</li></ol>
-    <figure class="shot"><img src="img/login-ezus-0.webp" alt="Вход в eZUS – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/login-ezus-1.webp" alt="Вход в eZUS – экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure>
-  </div>
-</section><section class="step" id="wniosek">
-  <div class="num" aria-hidden="true">2</div>
-  <div class="body">
-    <h2>Informacje ogólne i wybór rodzaju wniosku</h2>
-    <p class="lead">Здесь выбираем, что именно подаём – RWS.</p>
-    <ol class="do"><li>Rodzaj wniosku: «Wniosek».</li><li>Typ: «Zwolnienie z tytułu wakacji składkowych».</li><li>Нажать «Dalej».</li></ol>
-    <figure class="shot"><img src="img/wniosek-0.webp" alt="Informacje ogólne i wybór rodzaju wniosku – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/wniosek-1.webp" alt="Informacje ogólne i wybór rodzaju wniosku – экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure>
-  </div>
-</section><section class="step" id="platnik">
-  <div class="num" aria-hidden="true">3</div>
-  <div class="body">
-    <h2>Dane płatnika</h2>
-    <p class="lead">Данные подставятся сами – их нужно только сверить.</p>
-    <ol class="do"><li>Сверить NIP и адрес.</li><li>Телефон можно не заполнять.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/platnik-0.webp" alt="Dane płatnika – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step" id="miesiac">
-  <div class="num" aria-hidden="true">4</div>
-  <div class="body">
-    <h2>Miesiąc, za który składany jest wniosek</h2>
-    <p class="lead">Выбираем месяц, за который не платим взносы.</p>
-    <ol class="do"><li>Отметить один месяц.</li><li>Проверить год.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/miesiac-0.webp" alt="Miesiąc, za który składany jest wniosek – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step" id="oswiadczenia">
-  <div class="num" aria-hidden="true">5</div>
-  <div class="body">
-    <h2>Oświadczenia</h2>
-    <p class="lead">Три утверждения – без них заявление не пройдёт.</p>
-    <ol class="do"><li>Отметить все пункты.</li><li>Прочитать, что подтверждаете.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/oswiadczenia-0.webp" alt="Oświadczenia – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step" id="dm1">
-  <div class="num" aria-hidden="true">6</div>
-  <div class="body">
-    <h2>Pomoc de minimis – часть 1</h2>
-    <p class="lead">Сколько помощи уже получили за 3 года.</p>
-    <ol class="do"><li>Вписать суммы в евро.</li><li>Если помощи не было – 0,00.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/dm1-0.webp" alt="Pomoc de minimis – часть 1 – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/dm1-1.webp" alt="Pomoc de minimis – часть 1 – экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure>
-  </div>
-</section><section class="step" id="dm2">
-  <div class="num" aria-hidden="true">7</div>
-  <div class="body">
-    <h2>Pomoc de minimis – часть 2</h2>
-    <p class="lead">Связанные фирмы. У большинства их нет.</p>
-    <ol class="do"><li>Если связей нет – везде «Nie».</li><li>Если есть – вписать NIP.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/dm2-0.webp" alt="Pomoc de minimis – часть 2 – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step" id="dm3">
-  <div class="num" aria-hidden="true">8</div>
-  <div class="body">
-    <h2>Pomoc de minimis – часть 3</h2>
-    <p class="lead">Вопросы о виде деятельности.</p>
-    <ol class="do"><li>Ответить на каждый пункт.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/dm3-0.webp" alt="Pomoc de minimis – часть 3 – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step" id="dm4">
-  <div class="num" aria-hidden="true">9</div>
-  <div class="body">
-    <h2>Pomoc de minimis – часть 4</h2>
-    <p class="lead">Последняя часть анкеты.</p>
-    <ol class="do"><li>Проверить суммы.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/dm4-0.webp" alt="Pomoc de minimis – часть 4 – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step" id="zalaczniki-b">
-  <div class="num" aria-hidden="true">10</div>
-  <div class="body">
-    <h2>Załączniki</h2>
-    <p class="lead">Если подаёте впервые – здесь пусто.</p>
-    <ol class="do"><li>Ничего не добавлять.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/zalaczniki-b-0.webp" alt="Załączniki – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step" id="podsumowanie">
-  <div class="num" aria-hidden="true">11</div>
-  <div class="body">
-    <h2>Podsumowanie</h2>
-    <p class="lead">Всё заявление на одном экране. Читаем и отправляем.</p>
-    <ol class="do"><li>Проверить месяц и суммы.</li><li>Нажать «Podgląd i wyślij».</li></ol>
-    <figure class="shot"><img src="img/podsumowanie-0.webp" alt="Podsumowanie – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step" id="podpis">
-  <div class="num" aria-hidden="true">12</div>
-  <div class="body">
-    <h2>Podpis i UPO</h2>
-    <p class="lead">Подпись и подтверждение, что заявление ушло.</p>
-    <ol class="do"><li>Подписать через Profil Zaufany.</li><li>Скачать UPO и сохранить.</li></ol>
-    
-  </div>
-</section>
-
-<div class="sect" id="repeat-start"><b>Раздел А · если помощь de minimis уже была</b><span>Справка из SUDOP и приложение PDF. Кто подаёт впервые – этот раздел пропускает.</span></div>
-<section class="step rep" id="sudop-1">
+<section class="step pre" id="login-ezus" data-id="login-ezus" data-r="first repeat">
+  <div class="num" aria-hidden="true">→</div>
+  <div class="body"><h2>Вход в eZUS</h2><p class="lead">Открываем кабинет на zus.pl — дальше все экраны внутри него.</p><ol class="do"><li>На zus.pl нажать «Zaloguj do PUE/eZUS».</li><li>Войти через Profil Zaufany или банк.</li><li>В меню выбрать «Katalog usług» → «Wakacje składkowe».</li></ol><figure class="shot"><img src="img/login-ezus-0.webp" alt="Вход в eZUS — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/login-ezus-1.webp" alt="Вход в eZUS — экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure></div>
+</section><section class="step pre" id="sudop-1" data-id="sudop-1" data-r="repeat">
   <div class="num" aria-hidden="true">A1</div>
-  <div class="body">
-    <h2>Справка из SUDOP</h2>
-    <p class="lead">Нужна тем, кто уже получал помощь de minimis.</p>
-    <ol class="do"><li>Открыть sudop.uokik.gov.pl.</li><li>Ввести NIP и нажать «Pobierz nazwę».</li><li>Отметить «tylko de minimis» и период 3 года.</li></ol>
-    <figure class="shot"><img src="img/sudop-1-0.webp" alt="Справка из SUDOP – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/sudop-1-1.webp" alt="Справка из SUDOP – экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure>
-  </div>
-</section><section class="step rep" id="sudop-2">
+  <div class="body"><h2>Справка из SUDOP</h2><p class="lead">Нужна тем, кто уже получал помощь de minimis.</p><ol class="do"><li>Открыть SUDOP — поиск по NIP.</li><li>Ввести NIP и нажать «Pobierz nazwę».</li><li>Отметить «tylko de minimis» и период 3 года.</li></ol><figure class="shot"><img src="img/sudop-1-0.webp" alt="Справка из SUDOP — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/sudop-1-1.webp" alt="Справка из SUDOP — экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure></div>
+</section><section class="step pre" id="sudop-2" data-id="sudop-2" data-r="repeat">
   <div class="num" aria-hidden="true">A2</div>
-  <div class="body">
-    <h2>Отчёт в PDF</h2>
-    <p class="lead">Файл, который приложим к заявлению.</p>
-    <ol class="do"><li>Нажать «Wyszukaj według wybranych kryteriów».</li><li>Выбрать PDF и сохранить файл.</li></ol>
-    <figure class="shot"><img src="img/sudop-2-0.webp" alt="Отчёт в PDF – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure>
-  </div>
-</section><section class="step rep" id="zalaczniki">
+  <div class="body"><h2>Отчёт в PDF</h2><p class="lead">Файл, который приложим к заявлению.</p><ol class="do"><li>Нажать «Wyszukaj według wybranych kryteriów».</li><li>Выбрать PDF и сохранить файл.</li></ol><figure class="shot"><img src="img/sudop-2-0.webp" alt="Отчёт в PDF — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step pre" id="zalaczniki" data-id="zalaczniki" data-r="repeat">
   <div class="num" aria-hidden="true">A3</div>
-  <div class="body">
-    <h2>Załączniki – прикладываем PDF</h2>
-    <p class="lead">Здесь добавляем справку из SUDOP.</p>
-    <ol class="do"><li>Нажать на пунктирную зону загрузки.</li><li>Выбрать сохранённый PDF.</li><li>«Dalej».</li></ol>
-    <figure class="shot"><img src="img/zalaczniki-0.webp" alt="Załączniki – прикладываем PDF – экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/zalaczniki-1.webp" alt="Załączniki – прикладываем PDF – экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure>
-  </div>
+  <div class="body"><h2>Załączniki — прикладываем PDF</h2><p class="lead">Здесь добавляем справку из SUDOP.</p><ol class="do"><li>Нажать на пунктирную зону загрузки.</li><li>Выбрать сохранённый PDF.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/zalaczniki-0.webp" alt="Załączniki — прикладываем PDF — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/zalaczniki-1.webp" alt="Załączniki — прикладываем PDF — экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure></div>
+</section><section class="step" id="wniosek" data-id="wniosek" data-r="first repeat">
+  <div class="num" aria-hidden="true">1</div>
+  <div class="body"><h2>Informacje ogólne i wybór rodzaju wniosku</h2><p class="lead">Здесь выбираем, что именно подаём — RWS.</p><ol class="do"><li>Rodzaj wniosku: «Wniosek».</li><li>Typ: «Zwolnienie z tytułu wakacji składkowych».</li><li>Нажать «Dalej».</li></ol><figure class="shot"><img src="img/wniosek-0.webp" alt="Informacje ogólne i wybór rodzaju wniosku — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/wniosek-1.webp" alt="Informacje ogólne i wybór rodzaju wniosku — экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure></div>
+</section><section class="step" id="platnik" data-id="platnik" data-r="first repeat">
+  <div class="num" aria-hidden="true">2</div>
+  <div class="body"><h2>Dane płatnika</h2><p class="lead">Данные подставятся сами — их нужно только сверить.</p><ol class="do"><li>Сверить NIP и адрес.</li><li>Телефон можно не заполнять.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/platnik-0.webp" alt="Dane płatnika — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step" id="miesiac" data-id="miesiac" data-r="first repeat">
+  <div class="num" aria-hidden="true">3</div>
+  <div class="body"><h2>Miesiąc, za który składany jest wniosek</h2><p class="lead">Выбираем месяц, за который не платим взносы.</p><ol class="do"><li>Отметить один месяц.</li><li>Проверить год.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/miesiac-0.webp" alt="Miesiąc, za który składany jest wniosek — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step" id="oswiadczenia" data-id="oswiadczenia" data-r="first repeat">
+  <div class="num" aria-hidden="true">4</div>
+  <div class="body"><h2>Oświadczenia</h2><p class="lead">Три утверждения — без них заявление не пройдёт.</p><ol class="do"><li>Отметить все пункты.</li><li>Прочитать, что подтверждаете.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/oswiadczenia-0.webp" alt="Oświadczenia — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step" id="dm1" data-id="dm1" data-r="first repeat">
+  <div class="num" aria-hidden="true">5</div>
+  <div class="body"><h2>Pomoc de minimis — часть 1</h2><p class="lead">Сколько помощи уже получили за 3 года.</p><ol class="do"><li>Вписать суммы в евро.</li><li>Если помощи не было — 0,00.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/dm1-0.webp" alt="Pomoc de minimis — часть 1 — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure><figure class="shot"><img src="img/dm1-1.webp" alt="Pomoc de minimis — часть 1 — экран 2" loading="lazy"><figcaption>Экран 2</figcaption></figure></div>
+</section><section class="step" id="dm2" data-id="dm2" data-r="first repeat">
+  <div class="num" aria-hidden="true">6</div>
+  <div class="body"><h2>Pomoc de minimis — часть 2</h2><p class="lead">Связанные фирмы. У большинства их нет.</p><ol class="do"><li>Если связей нет — везде «Nie».</li><li>Если есть — вписать NIP.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/dm2-0.webp" alt="Pomoc de minimis — часть 2 — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step" id="dm3" data-id="dm3" data-r="first repeat">
+  <div class="num" aria-hidden="true">7</div>
+  <div class="body"><h2>Pomoc de minimis — часть 3</h2><p class="lead">Вопросы о виде деятельности.</p><ol class="do"><li>Ответить на каждый пункт.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/dm3-0.webp" alt="Pomoc de minimis — часть 3 — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step" id="dm4" data-id="dm4" data-r="first repeat">
+  <div class="num" aria-hidden="true">8</div>
+  <div class="body"><h2>Pomoc de minimis — часть 4</h2><p class="lead">Последняя часть анкеты.</p><ol class="do"><li>Проверить суммы.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/dm4-0.webp" alt="Pomoc de minimis — часть 4 — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step" id="zalaczniki-b" data-id="zalaczniki-b" data-r="first">
+  <div class="num" aria-hidden="true">9</div>
+  <div class="body"><h2>Załączniki</h2><p class="lead">Если подаёте впервые — здесь пусто.</p><ol class="do"><li>Ничего не добавлять.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/zalaczniki-b-0.webp" alt="Załączniki — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step" id="podsumowanie" data-id="podsumowanie" data-r="first repeat">
+  <div class="num" aria-hidden="true">10</div>
+  <div class="body"><h2>Podsumowanie</h2><p class="lead">Всё заявление на одном экране. Читаем и отправляем.</p><ol class="do"><li>Проверить месяц и суммы.</li><li>Нажать «Podgląd i wyślij».</li></ol><figure class="shot"><img src="img/podsumowanie-0.webp" alt="Podsumowanie — экран 1" loading="lazy"><figcaption>Экран 1</figcaption></figure></div>
+</section><section class="step" id="podpis" data-id="podpis" data-r="first repeat">
+  <div class="num" aria-hidden="true">11</div>
+  <div class="body"><h2>Podpis i UPO</h2><p class="lead">Подпись и подтверждение, что заявление ушло.</p><ol class="do"><li>Подписать через Profil Zaufany.</li><li>Скачать UPO и сохранить.</li></ol></div>
 </section>
 
 <div class="note">
   <h2>Если экран выглядит иначе</h2>
-  <p>Интерфейс eZUS иногда меняет подписи. Ориентируйтесь на смысл: шаг вперёд – синяя кнопка справа внизу, возврат – «Wstecz», сохранение – «Zapisz i zamknij».</p>
-  <p>Если появился экран, которого нет в инструкции, – сделайте скриншот и пришлите в бюро, мы подскажем, что нажать.</p>
+  <p>Интерфейс eZUS иногда меняет подписи. Ориентируйтесь на смысл: шаг вперёд — синяя кнопка справа внизу, возврат — «Wstecz», сохранение — «Zapisz i zamknij».</p>
+  <p>Если появился экран, которого нет в инструкции, — сделайте скриншот и пришлите в бюро.</p>
 </div>
 
 <div class="note">
   <h2>Прямые ссылки</h2>
-  <ul class="links"><li><a href="https://www.zus.pl/" target="_blank" rel="noopener">Вход в eZUS</a><span>кнопка «Zaloguj do PUE/eZUS»</span></li><li><a href="https://biznes.gov.pl/pl/portal/ou710" target="_blank" rel="noopener">Правила wakacji składkowych</a><span>biznes.gov.pl, раздел ZUS</span></li><li><a href="https://sudop.uokik.gov.pl" target="_blank" rel="noopener">SUDOP – справка de minimis</a><span>поиск по NIP</span></li><li><a href="https://login.gov.pl" target="_blank" rel="noopener">Profil Zaufany</a><span>вход и подпись</span></li></ul>
+  <ul class="links"><li><a href="https://www.zus.pl/" target="_blank" rel="noopener">ZUS — вход в eZUS</a><span>кнопка «Zaloguj do PUE/eZUS»</span></li><li><a href="https://biznes.gov.pl/pl/portal/ou710" target="_blank" rel="noopener">Wakacje składkowe — правила</a><span>biznes.gov.pl · ZUS</span></li><li><a href="https://sudop.uokik.gov.pl" target="_blank" rel="noopener">SUDOP — справка de minimis</a><span>сервис UOKiK, поиск по NIP</span></li><li><a href="https://login.gov.pl" target="_blank" rel="noopener">Profil Zaufany</a><span>вход и подпись заявления</span></li></ul>
 </div>
 
 <div class="note">
   <h2>Что важно знать до начала</h2>
   <ul>
     <li>Заявление подаётся в месяц, предшествующий месяцу каникул.</li>
-    <li>Лимит помощи de minimis – 300 000 евро за три года.</li>
-    <li>Справка из SUDOP как приложение – требование бюро, а не текст инструкции ZUS.</li>
+    <li>Лимит помощи de minimis — 300 000 евро за три года.</li>
+    <li>Справка из SUDOP как приложение — рабочее требование бюро, а не текст инструкции ZUS.</li>
   </ul>
 </div>
 </div>
@@ -272,6 +195,58 @@ a{color:inherit}
 <footer class="foot"><div class="foot-in">
   <div><p><b>Arkkona Biuro</b> · Kraków</p><p><a href="https://arkkonabiuro.pl">arkkonabiuro.pl</a></p></div>
   <div><p>Подать за Вас: <a href="https://t.me/ArkkonaBiuroBot?start=zayavka">@ArkkonaBiuroBot</a></p><p>Вопрос: <a href="https://t.me/indradev_">@indradev_</a></p></div>
-  <small>Инструкция подготовлена для клиентов бюро и не является официальным документом ZUS. Официальные правила – на zus.pl. Версия 4.0 · 22.10.2026.</small>
+  <small>Инструкция подготовлена для клиентов бюро и не является официальным документом ZUS. Официальные правила — на zus.pl. Версия 5.0 · 22.10.2026.</small>
 </div></footer>
+
+<script>
+const STEPS = [{"id": "login-ezus", "num": "→", "title": "Вход в eZUS", "routes": ["first", "repeat"]}, {"id": "sudop-1", "num": "A1", "title": "Справка из SUDOP", "routes": ["repeat"]}, {"id": "sudop-2", "num": "A2", "title": "Отчёт в PDF", "routes": ["repeat"]}, {"id": "zalaczniki", "num": "A3", "title": "Załączniki", "routes": ["repeat"]}, {"id": "wniosek", "num": "1", "title": "Informacje ogólne i wybór rodzaju wniosku", "routes": ["first", "repeat"]}, {"id": "platnik", "num": "2", "title": "Dane płatnika", "routes": ["first", "repeat"]}, {"id": "miesiac", "num": "3", "title": "Miesiąc, za który składany jest wniosek", "routes": ["first", "repeat"]}, {"id": "oswiadczenia", "num": "4", "title": "Oświadczenia", "routes": ["first", "repeat"]}, {"id": "dm1", "num": "5", "title": "Pomoc de minimis", "routes": ["first", "repeat"]}, {"id": "dm2", "num": "6", "title": "Pomoc de minimis", "routes": ["first", "repeat"]}, {"id": "dm3", "num": "7", "title": "Pomoc de minimis", "routes": ["first", "repeat"]}, {"id": "dm4", "num": "8", "title": "Pomoc de minimis", "routes": ["first", "repeat"]}, {"id": "zalaczniki-b", "num": "9", "title": "Załączniki", "routes": ["first"]}, {"id": "podsumowanie", "num": "10", "title": "Podsumowanie", "routes": ["first", "repeat"]}, {"id": "podpis", "num": "11", "title": "Podpis i UPO", "routes": ["first", "repeat"]}];
+const KEY = 'rws-route';
+
+function buildSide(route){
+  const side = document.getElementById('side');
+  const jump = document.getElementById('jump');
+  const items = STEPS.filter(s => s.routes.includes(route));
+  const link = (s) => `<a href="#${s.id}" data-to="${s.id}" class="${s.id.startsWith('sudop')||s.id==='zalaczniki'?'prep':''}"><b>${s.num}</b><span>${s.title}</span></a>`;
+  side.innerHTML = `<p class="cap">${route==='first'?'Первая подача':'Повторная подача'}</p>` +
+    items.map(link).join('') +
+    `<div class="switch"><button onclick="setRoute(null)">Изменить маршрут</button></div>`;
+  jump.querySelector('.jump-in').innerHTML = items.map(s => `<a href="#${s.id}" data-to="${s.id}"><b>${s.num}</b><span>${s.title}</span></a>`).join('');
+  side.classList.add('on'); document.getElementById('shell').classList.add('routed');
+}
+
+function setRoute(route){
+  const hero = document.getElementById('hero');
+  if(!route){ localStorage.removeItem(KEY); document.querySelectorAll('.step').forEach(s=>s.style.display=''); document.getElementById('side').classList.remove('on'); document.getElementById('shell').classList.remove('routed'); hero.style.display=''; window.scrollTo({top:0,behavior:'smooth'}); return; }
+  localStorage.setItem(KEY, route);
+  buildSide(route);
+  document.querySelectorAll('.step').forEach(s => {
+    s.style.display = s.dataset.r.split(' ').includes(route) ? '' : 'none';
+  });
+  hero.style.display = 'none';
+  const first = STEPS.find(s => s.routes.includes(route) && s.id !== 'login-ezus');
+  history.replaceState(null,'', '#' + first.id);
+  const el = document.getElementById(first.id);
+  window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - 60, behavior:'smooth'});
+  setActive(first.id);
+}
+
+function setActive(id){
+  document.querySelectorAll('.side a, .jump a').forEach(a => a.classList.toggle('act', a.dataset.to === id));
+}
+
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-to]'); if(!a) return;
+  setActive(a.dataset.to);
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting) setActive(en.target.id); });
+}, {rootMargin:'-45% 0px -45% 0px'});
+document.querySelectorAll('.step').forEach(s => io.observe(s));
+
+(function init(){
+  const r = localStorage.getItem(KEY);
+  if(r === 'first' || r === 'repeat') setRoute(r);
+})();
+</script>
 </body></html>
