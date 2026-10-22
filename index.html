@@ -29,7 +29,7 @@ p,li{text-wrap:pretty}
 a{color:inherit}
 .top{background:var(--navy);color:#fff;padding:18px 20px}
 .top-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.mark{font-family:var(--sans);font-weight:700;font-size:22px;line-height:1;color:var(--gold);letter-spacing:0}
+.mark{display:inline-flex;align-items:center;line-height:0}
 .brand-t{display:flex;flex-direction:column;line-height:1.15}
 .brand-t b{font-family:"Lora",serif;font-size:20px}
 .brand-t small{font-size:14px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
@@ -140,8 +140,8 @@ a{color:inherit}
 </head>
 <body>
 <header class="top"><div class="top-in">
-  <span class="mark" aria-hidden="true">A</span>
-  <span class="brand-t"><b>Arkkona Biuro</b><small>wnioski ZUS · по всей Польше</small></span>
+  <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32" width="26" height="26" role="img"><rect width="32" height="32" rx="6" fill="#0E1B2C"/><polygon points="16,6 26,16 16,26 6,16" fill="#C69B3C"/></svg></span>
+  <span class="brand-t"><b>Arkkona Biuro</b><small>biuro rachunkowe · JDG по всей Польше</small></span>
   <button class="pdf" onclick="window.print()">Сохранить в PDF</button>
 </div></header>
 
