@@ -201,9 +201,9 @@ a{color:inherit}
 </section><section class="step" id="dm4" data-id="dm4" data-r="first repeat">
   <div class="num" aria-hidden="true">8</div>
   <div class="body"><h2>Помощь de minimis – часть 4</h2><p class="screen">Экран: <span lang="pl">«Pomoc de minimis»</span></p><p class="lead">Последняя часть анкеты.</p><ol class="do"><li>Проверить суммы.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/dm4-0.webp" alt="Помощь de minimis – часть 4 – экран 1" loading="lazy"><figcaption><b>Шаг 8 · Экран 1:</b> последняя часть анкеты – перед «Dalej» сверяем суммы.</figcaption></figure></div>
-</section><section class="step" id="zalaczniki-b" data-id="zalaczniki-b" data-r="first">
+</section><section class="step" id="zalaczniki-b" data-id="zalaczniki-b" data-r="first repeat">
   <div class="num" aria-hidden="true">9</div>
-  <div class="body"><h2>Приложения</h2><p class="screen">Экран: <span lang="pl">«Załączniki»</span></p><p class="lead">Если подаёте впервые – здесь пусто.</p><ol class="do"><li>Ничего не добавлять.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/zalaczniki-b-0.webp" alt="Приложения – экран 1" loading="lazy"><figcaption><b>Шаг 9 · Экран 1:</b> приложения пустые – так и должно быть, если справка не требуется.</figcaption></figure></div>
+  <div class="body"><h2>Приложения</h2><p class="screen">Экран: <span lang="pl">«Załączniki»</span></p><p class="lead">Если подаёте впервые – здесь пусто. При повторной подаче справку SUDOP прикладываем здесь.</p><ol class="do"><li>Ничего не добавлять.</li><li>«Dalej».</li></ol><figure class="shot"><img src="img/zalaczniki-b-0.webp" alt="Приложения – экран 1" loading="lazy"><figcaption><b>Шаг 9 · Экран 1:</b> приложения пустые – так и должно быть, если справка не требуется.</figcaption></figure></div>
 </section><section class="step" id="podsumowanie" data-id="podsumowanie" data-r="first repeat">
   <div class="num" aria-hidden="true">10</div>
   <div class="body"><h2>Сводка</h2><p class="screen">Экран: <span lang="pl">«Podsumowanie»</span></p><p class="lead">Всё заявление на одном экране. Читаем и отправляем.</p><ol class="do"><li>Проверить месяц и суммы.</li><li>Нажать «Podgląd i wyślij».</li></ol><figure class="shot"><img src="img/podsumowanie-0.webp" alt="Сводка – экран 1" loading="lazy"><figcaption><b>Шаг 10 · Экран 1:</b> всё заявление на одном экране – сверяем месяц и суммы, затем «Podgląd i wyślij».</figcaption></figure></div>
@@ -241,14 +241,13 @@ a{color:inherit}
 </div></footer>
 
 <script>
-const STEPS = [{"id": "login-ezus", "num": "→", "title": "Вход в eZUS", "routes": ["first", "repeat"]}, {"id": "sudop-1", "num": "A1", "title": "Справка из SUDOP", "routes": ["repeat"]}, {"id": "sudop-2", "num": "A2", "title": "Отчёт в PDF", "routes": ["repeat"]}, {"id": "zalaczniki", "num": "A3", "title": "Приложения", "routes": ["repeat"]}, {"id": "wniosek", "num": "1", "title": "Общие данные и вид заявления", "routes": ["first", "repeat"]}, {"id": "platnik", "num": "2", "title": "Данные плательщика", "routes": ["first", "repeat"]}, {"id": "miesiac", "num": "3", "title": "Месяц, за который подаём", "routes": ["first", "repeat"]}, {"id": "oswiadczenia", "num": "4", "title": "Заявления-подтверждения", "routes": ["first", "repeat"]}, {"id": "dm1", "num": "5", "title": "Помощь de minimis", "routes": ["first", "repeat"]}, {"id": "dm2", "num": "6", "title": "Помощь de minimis", "routes": ["first", "repeat"]}, {"id": "dm3", "num": "7", "title": "Помощь de minimis", "routes": ["first", "repeat"]}, {"id": "dm4", "num": "8", "title": "Помощь de minimis", "routes": ["first", "repeat"]}, {"id": "zalaczniki-b", "num": "9", "title": "Приложения", "routes": ["first"]}, {"id": "podsumowanie", "num": "10", "title": "Сводка", "routes": ["first", "repeat"]}, {"id": "podpis", "num": "11", "title": "Подпись и UPO", "routes": ["first", "repeat"]}];
+const STEPS = [{"id": "login-ezus", "num": "→", "title": "Вход в eZUS", "routes": ["first", "repeat"]}, {"id": "sudop-1", "num": "A1", "title": "Справка из SUDOP", "routes": ["repeat"]}, {"id": "sudop-2", "num": "A2", "title": "Отчёт в PDF", "routes": ["repeat"]}, {"id": "zalaczniki", "num": "A3", "title": "Приложения", "routes": ["repeat"]}, {"id": "wniosek", "num": "1", "title": "Общие данные и вид заявления", "routes": ["first", "repeat"]}, {"id": "platnik", "num": "2", "title": "Данные плательщика", "routes": ["first", "repeat"]}, {"id": "miesiac", "num": "3", "title": "Месяц, за который подаём", "routes": ["first", "repeat"]}, {"id": "oswiadczenia", "num": "4", "title": "Заявления-подтверждения", "routes": ["first", "repeat"]}, {"id": "dm1", "num": "5", "title": "Помощь de minimis, часть 1", "routes": ["first", "repeat"]}, {"id": "dm2", "num": "6", "title": "Помощь de minimis, часть 2", "routes": ["first", "repeat"]}, {"id": "dm3", "num": "7", "title": "Помощь de minimis, часть 3", "routes": ["first", "repeat"]}, {"id": "dm4", "num": "8", "title": "Помощь de minimis, часть 4", "routes": ["first", "repeat"]}, {"id": "zalaczniki-b", "num": "9", "title": "Приложения", "routes": ["first", "repeat"]}, {"id": "podsumowanie", "num": "10", "title": "Сводка", "routes": ["first", "repeat"]}, {"id": "podpis", "num": "11", "title": "Подпись и UPO", "routes": ["first", "repeat"]}];
 const KEY = 'rws-route';
 
 function buildSide(route){
   const side = document.getElementById('side');
   const jump = document.getElementById('jump');
   let items = STEPS.filter(s => s.routes.includes(route));
-  if(route==='repeat'){const i=items.findIndex(s=>s.num==='8');if(i>-1)items=[...items.slice(0,i+1),{id:'zalaczniki',num:'9',title:'Приложения (в A3)',routes:['repeat']},...items.slice(i+1)];}
   const link = (s) => `<a href="#${s.id}" data-to="${s.id}" class="${s.id.startsWith('sudop')||s.id==='zalaczniki'?'prep':''}"><b>${s.num}</b><span>${s.title}</span></a>`;
   side.innerHTML = `<p class="cap">${route==='first'?'Первая подача':'Повторная подача'}</p>` +
     items.map(link).join('') +
@@ -263,7 +262,7 @@ function buildSide(route){
 
 function setRoute(route){
   const hero = document.getElementById('hero');
-  if(!route){ localStorage.removeItem(KEY); document.querySelectorAll('.step').forEach(s=>s.style.display=''); document.getElementById('side').classList.remove('on'); document.getElementById('shell').classList.remove('routed'); hero.style.display=''; window.scrollTo({top:0,behavior:'smooth'}); return; }
+  if(!route){ localStorage.removeItem(KEY); document.querySelectorAll('.step').forEach(s=>s.style.display='none'); document.getElementById('side').classList.remove('on'); document.getElementById('jump').classList.remove('on'); document.getElementById('routebar').classList.remove('on'); document.getElementById('shell').classList.remove('routed'); setActive(null); history.replaceState(null,'',location.pathname); hero.style.display=''; window.scrollTo({top:0,behavior:'smooth'}); return; }
   localStorage.setItem(KEY, route);
   buildSide(route);
   document.querySelectorAll('.step').forEach(s => {
@@ -295,6 +294,8 @@ document.getElementById('rb-change').addEventListener('click',()=>{setRoute(null
 (function init(){
   document.querySelectorAll('.step').forEach(s => s.style.display = 'none');
   if(window.innerWidth <= 960){ document.getElementById('jump').classList.remove('on'); }
+  const saved = localStorage.getItem(KEY);
+  if(saved === 'first' || saved === 'repeat'){ setRoute(saved); }
 })();
 </script>
 </body></html>

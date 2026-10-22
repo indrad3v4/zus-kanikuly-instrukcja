@@ -1,0 +1,95 @@
+{
+ "url": "https://vizitka-preview-production.up.railway.app/zus-kanikuly/instrukcja.html",
+ "deployed_commit": "239691f",
+ "deployed_commit_sha256": "dc7fd9479b46bf412ba8e69e0dccc8ab7f509019797b9ecb9e33f0e95536bee5",
+ "captured_at": "2026-10-22T17:07:08+00:00",
+ "browser": "Chromium headless (CDP), /usr/bin/chromium",
+ "note": "Every file is a real browser capture of the live page; no source-code rendering substituted.",
+ "shots": [
+  {
+   "file": "01-desktop-full.jpg",
+   "scenario": "desktop full page, initial state (route selection visible)",
+   "viewport": "1440x900 @1x",
+   "page_height": 1499,
+   "bytes": 182775,
+   "captured_at": "2026-10-22T17:06:53+00:00"
+  },
+  {
+   "file": "02-route-selection.png",
+   "scenario": "initial route-selection screen (viewport, top of page)",
+   "viewport": "1440x900",
+   "bytes": 113123,
+   "captured_at": "2026-10-22T17:06:53+00:00"
+  },
+  {
+   "file": "03-route-first.png",
+   "scenario": "after selecting first-time application route (setRoute('first'))",
+   "viewport": "1440x900",
+   "bytes": 277617,
+   "captured_at": "2026-10-22T17:06:54+00:00"
+  },
+  {
+   "file": "04-route-repeat.png",
+   "scenario": "after selecting repeat-application route (setRoute('repeat'))",
+   "viewport": "1440x900",
+   "bytes": 285493,
+   "captured_at": "2026-10-22T17:06:56+00:00"
+  },
+  {
+   "file": "05-route-change-clicked.png",
+   "scenario": "after activating \"Изменить маршрут\" (#rb-change)",
+   "viewport": "1440x900",
+   "bytes": 113146,
+   "state": "{\"label\":\"Маршрут: подаю повторно\",\"hidden\":true,\"forkVisible\":\"n/a\"}",
+   "captured_at": "2026-10-22T17:06:57+00:00"
+  },
+  {
+   "file": "06-step-login-ezus.png",
+   "scenario": "instructional step anchored on #login-ezus (first-time route)",
+   "viewport": "1440x900",
+   "bytes": 273053,
+   "captured_at": "2026-10-22T17:06:58+00:00"
+  },
+  {
+   "file": "07-nav-jump-bar.png",
+   "scenario": "navigation: route bar + section jump controls after step scroll",
+   "viewport": "1440x900",
+   "bytes": 273053,
+   "captured_at": "2026-10-22T17:06:58+00:00"
+  },
+  {
+   "file": "08-mobile-full.jpg",
+   "scenario": "mobile full page, initial state",
+   "viewport": "390x844 @2x",
+   "page_height": 7857,
+   "bytes": 1283418,
+   "captured_at": "2026-10-22T17:07:02+00:00"
+  },
+  {
+   "file": "09-mobile-repeat.png",
+   "scenario": "mobile after selecting repeat route",
+   "viewport": "390x844 @2x",
+   "bytes": 256822,
+   "captured_at": "2026-10-22T17:07:04+00:00"
+  },
+  {
+   "file": "10-nojs-desktop.jpg",
+   "scenario": "JavaScript disabled: server HTML alone (content presence test)",
+   "viewport": "1440x900",
+   "bytes": 1380432,
+   "innerText_len": 5337,
+   "figures": 19,
+   "images": 19,
+   "route_fork": "missing",
+   "captured_at": "2026-10-22T17:07:08+00:00"
+  }
+ ],
+ "deployed_commit_full": "239691f9820870c2031e2e93b941636ed0bd3915",
+ "state": "after fixes",
+ "fixes": [
+  "P1 reset returns to chooser: routebar/jump hidden, hash cleared, steps hidden",
+  "P1 saved route restored on reload from localStorage",
+  "P2 nav labels distinct: Помощь de minimis, часть 1..4",
+  "P2 single step 9 Приложения in repeat route (no duplicate A3 entry)"
+ ]
+}
