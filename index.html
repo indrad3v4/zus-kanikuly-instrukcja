@@ -18,24 +18,24 @@
 <title>Wakacje składkowe: пошаговая инструкция RWS</title>
 <meta name="description" content="Два маршрута по экранам eZUS: первая подача RWS и повторная с справкой SUDOP.">
 <style>
-:root{--navy:#0E1B2C;--panel:#F6F3EC;--ink:#182230;--muted:#4C5765;--gold:#C69B3C;--gold-deep:#8A6A1F;--line:#E3DCCB;--red:#B4432C}
+:root{--navy:#0E1B2C;--panel:#F6F3EC;--ink:#182230;--muted:#5A6572;--gold:#C69B3C;--gold-deep:#8A6A1F;--line:#E3DCCB;--red:#B4432C}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--ink);font:16px/1.55 Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;background:var(--panel);color:var(--ink);font:16px/1.55 Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif}
 h1,h2,.brand{font-family:Lora,Georgia,serif;font-weight:600;text-wrap:balance}
 p,li{text-wrap:pretty}
 a{color:inherit}
 .top{background:var(--navy);color:#fff;padding:18px 20px}
 .top-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.mark{width:34px;height:34px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:#0E1B2C;font-family:Lora,serif;font-size:19px;font-weight:700;line-height:1;flex:0 0 auto}
+.mark{font:700 22px/1 var(--sans);color:var(--gold);letter-spacing:0}
 .brand-t{display:flex;flex-direction:column;line-height:1.15}
 .brand-t b{font-family:Lora,serif;font-size:20px}
 .brand-t small{font-size:14px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
 .top .pdf{margin-left:auto;background:var(--gold);color:#20180A;border:0;border-radius:3px;padding:13px 18px;font:600 16px Montserrat,sans-serif;cursor:pointer}
 .shell{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:40px;padding:0 20px}
-.shell.routed{grid-template-columns:272px minmax(0,1fr)}
+.shell.routed{grid-template-columns:minmax(0,1fr) 288px}
 .shell:not(.routed) .main{max-width:860px}
-.side{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:26px 0;display:none}
+.side{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:26px 0 26px 4px;display:none;order:2}
 .side.on{display:block}
 .side .cap{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;padding:0 8px}
 .side a{display:flex;align-items:flex-start;gap:9px;text-decoration:none;font-size:14px;color:var(--muted);padding:8px;border-radius:3px;line-height:1.3}
@@ -46,7 +46,11 @@ a{color:inherit}
 .side a.prep b{background:var(--red)}
 .side .switch{margin:18px 8px 0;border-top:1px solid var(--line);padding-top:14px}
 .side .switch button{width:100%;text-align:left;background:none;border:1px solid var(--line);border-radius:3px;padding:10px 12px;font:600 14px Montserrat,sans-serif;color:var(--navy);cursor:pointer}
-.main{min-width:0;padding-bottom:50px}
+.main{min-width:0;padding-bottom:50px;order:1}
+.tocm{display:none;background:#fff;border:1px solid var(--line);border-radius:4px;margin:6px 0 14px;padding:10px 14px}
+.tocm summary{cursor:pointer;font-weight:600;color:var(--navy)}
+.tocm a{display:flex;gap:8px;text-decoration:none;color:var(--muted);font-size:14px;padding:6px 0}
+.tocm a b{color:var(--navy)}
 .hero{padding:34px 0 6px}
 .hero h1{font-size:clamp(28px,4.6vw,40px);line-height:1.08;margin:0 0 12px;letter-spacing:-.01em}
 .hero p.sub{font-size:20px;max-width:56ch;margin:0 0 18px}
@@ -92,6 +96,7 @@ a{color:inherit}
   .shell{grid-template-columns:1fr;gap:0}
   .side{display:none!important}
   .jump{display:block}
+  .tocm{display:block}
   .choose{grid-template-columns:1fr}
   .step{gap:12px;padding:26px 0}
   .step .num{width:44px;height:44px;font-size:20px}
@@ -132,9 +137,11 @@ a{color:inherit}
   <p class="sub">Один месяц без взносов на социальное страхование. Выберите свой случай — дальше пойдёте по экранам, ничего искать не нужно.</p>
   <div class="choose">
     <button class="pri" onclick="setRoute('first')"><b>Подаю впервые</b><span>Первый раз в этом году. Начинаем с вида заявления.</span></button>
-    <button onclick="setRoute('repeat')"><b>Уже получал(а) de minimis</b><span>Сначала справка из SUDOP, потом заявление.</span></button>
+    <button onclick="setRoute('repeat')"><b>Подаю повторно</b><span>Заявление уже подавали ранее — сначала справка из SUDOP.</span></button>
   </div>
 </div>
+
+<details class="tocm" id="tocm"><summary>Содержание</summary><div id="tocm-in"></div></details>
 
 <section class="step pre" id="login-ezus" data-id="login-ezus" data-r="first repeat">
   <div class="num" aria-hidden="true">→</div>
@@ -206,7 +213,7 @@ a{color:inherit}
 </div>
 
 <footer class="foot"><div class="foot-in">
-  <div><p><b>Arkkona Biuro</b> · Kraków</p><p><a href="https://arkkonabiuro.pl">arkkonabiuro.pl</a></p></div>
+  <div><p><b>Arkkona Biuro</b></p><p><a href="https://arkkonabiuro.pl">arkkonabiuro.pl</a></p></div>
   <div><p>Подать за Вас: <a href="https://t.me/ArkkonaBiuroBot?start=zayavka">@ArkkonaBiuroBot</a></p><p>Вопрос: <a href="https://t.me/indradev_">@indradev_</a></p></div>
   <small>Инструкция подготовлена для клиентов бюро и не является официальным документом ZUS. Официальные правила — на zus.pl. Версия 5.0 · 22.10.2026.</small>
 </div></footer>
@@ -218,12 +225,14 @@ const KEY = 'rws-route';
 function buildSide(route){
   const side = document.getElementById('side');
   const jump = document.getElementById('jump');
-  const items = STEPS.filter(s => s.routes.includes(route));
+  let items = STEPS.filter(s => s.routes.includes(route));
+  if(route==='repeat'){const i=items.findIndex(s=>s.num==='8');if(i>-1)items=[...items.slice(0,i+1),{id:'zalaczniki',num:'9',title:'Приложения (в A3)',routes:['repeat']},...items.slice(i+1)];}
   const link = (s) => `<a href="#${s.id}" data-to="${s.id}" class="${s.id.startsWith('sudop')||s.id==='zalaczniki'?'prep':''}"><b>${s.num}</b><span>${s.title}</span></a>`;
   side.innerHTML = `<p class="cap">${route==='first'?'Первая подача':'Повторная подача'}</p>` +
     items.map(link).join('') +
     `<div class="switch"><button onclick="setRoute(null)">Изменить маршрут</button></div>`;
   jump.querySelector('.jump-in').innerHTML = items.map(s => `<a href="#${s.id}" data-to="${s.id}"><b>${s.num}</b><span>${s.title}</span></a>`).join('');
+  document.getElementById('tocm-in').innerHTML = items.map(link).join('');
   side.classList.add('on'); document.getElementById('shell').classList.add('routed');
 }
 
