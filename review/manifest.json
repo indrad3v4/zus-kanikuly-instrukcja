@@ -1,0 +1,87 @@
+{
+  "url": "https://vizitka-preview-production.up.railway.app/zus-kanikuly/instrukcja.html",
+  "deployed_commit": "c13dba9",
+  "deployed_commit_sha256": "8ec894b0b784d2a424bcc4f2bd1be9fdf1c0f262fa75a4a82ab6c1c3b23724ba",
+  "captured_at": "2026-10-22T15:30:38+00:00",
+  "browser": "Chromium headless (CDP), /usr/bin/chromium",
+  "note": "Every file is a real browser capture of the live page; no source-code rendering substituted.",
+  "shots": [
+    {
+      "file": "01-desktop-full.jpg",
+      "scenario": "desktop full page, initial state (route selection visible)",
+      "viewport": "1440x900 @1x",
+      "page_height": 1499,
+      "bytes": 182775,
+      "captured_at": "2026-10-22T15:30:24+00:00"
+    },
+    {
+      "file": "02-route-selection.png",
+      "scenario": "initial route-selection screen (viewport, top of page)",
+      "viewport": "1440x900",
+      "bytes": 113123,
+      "captured_at": "2026-10-22T15:30:24+00:00"
+    },
+    {
+      "file": "03-route-first.png",
+      "scenario": "after selecting first-time application route (setRoute('first'))",
+      "viewport": "1440x900",
+      "bytes": 275147,
+      "captured_at": "2026-10-22T15:30:25+00:00"
+    },
+    {
+      "file": "04-route-repeat.png",
+      "scenario": "after selecting repeat-application route (setRoute('repeat'))",
+      "viewport": "1440x900",
+      "bytes": 283969,
+      "captured_at": "2026-10-22T15:30:27+00:00"
+    },
+    {
+      "file": "05-route-change-clicked.png",
+      "scenario": "after activating \"Изменить маршрут\" (#rb-change)",
+      "viewport": "1440x900",
+      "bytes": 186089,
+      "state": "{\"label\":\"Маршрут: подаю повторно\",\"hidden\":false,\"forkVisible\":\"block\"}",
+      "captured_at": "2026-10-22T15:30:28+00:00"
+    },
+    {
+      "file": "06-step-login-ezus.png",
+      "scenario": "instructional step anchored on #login-ezus (first-time route)",
+      "viewport": "1440x900",
+      "bytes": 270732,
+      "captured_at": "2026-10-22T15:30:29+00:00"
+    },
+    {
+      "file": "07-nav-jump-bar.png",
+      "scenario": "navigation: route bar + section jump controls after step scroll",
+      "viewport": "1440x900",
+      "bytes": 270732,
+      "captured_at": "2026-10-22T15:30:29+00:00"
+    },
+    {
+      "file": "08-mobile-full.jpg",
+      "scenario": "mobile full page, initial state",
+      "viewport": "390x844 @2x",
+      "page_height": 2051,
+      "bytes": 362485,
+      "captured_at": "2026-10-22T15:30:33+00:00"
+    },
+    {
+      "file": "09-mobile-repeat.png",
+      "scenario": "mobile after selecting repeat route",
+      "viewport": "390x844 @2x",
+      "bytes": 256825,
+      "captured_at": "2026-10-22T15:30:34+00:00"
+    },
+    {
+      "file": "10-nojs-desktop.jpg",
+      "scenario": "JavaScript disabled: server HTML alone (content presence test)",
+      "viewport": "1440x900",
+      "bytes": 1373739,
+      "innerText_len": 5282,
+      "figures": 19,
+      "images": 19,
+      "route_fork": "present",
+      "captured_at": "2026-10-22T15:30:38+00:00"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visual review — ZUS instruction page (live capture)</title>
+<meta name="robots" content="index,follow">
+<style>
+  :root{--ink:#1c2430;--muted:#5b6773;--gold:#b9922f;--paper:#f6f1e7}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 -apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  header{background:#16233a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.2px}
+  header p{margin:0;color:#c9d3e2;font-size:14px}
+  main{max-width:1100px;margin:0 auto;padding:24px 20px 60px}
+  .facts{background:#fff;border-left:3px solid var(--gold);padding:14px 18px;margin:0 0 26px;font-size:14px}
+  .facts b{color:var(--gold)}
+  .facts code{background:#f0ece3;padding:1px 5px;border-radius:3px;font-size:13px}
+  h2{font-size:17px;margin:30px 0 10px;border-bottom:1px solid #e0d8c8;padding-bottom:6px}
+  figure{margin:0 0 26px;background:#fff;padding:10px;border:1px solid #e3dccc}
+  figure a{display:block}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+  .note{font-size:13px;color:var(--muted);margin-top:34px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Visual review — ZUS instruction (live page)</h1>
+  <p>Real browser captures, not renders of source code</p>
+</header>
+<main>
+  <div class="facts">
+    <b>URL:</b> <a href="https://vizitka-preview-production.up.railway.app/zus-kanikuly/instrukcja.html">https://vizitka-preview-production.up.railway.app/zus-kanikuly/instrukcja.html</a><br>
+    <b>Deployed commit:</b> <code>c13dba9</code> · sha256 of served HTML: <code>8ec894b0…3b23724ba</code><br>
+    <b>Captured:</b> 2026-10-22T15:30:38Z · Chromium headless (CDP)<br>
+    <b>Manifest (JSON):</b> <a href="manifest.json">manifest.json</a> · <b>Capture script:</b> <a href="capture.py">capture.py</a>
+  </div>
+
+  <h2>Desktop 1440×900</h2>
+  <figure><a href="01-desktop-full.jpg"><img src="01-desktop-full.jpg" alt="Desktop full page"></a>
+    <figcaption>01 — full page, initial state</figcaption></figure>
+  <figure><a href="02-route-selection.png"><img src="02-route-selection.png" alt="Route selection"></a>
+    <figcaption>02 — initial route-selection screen</figcaption></figure>
+  <figure><a href="03-route-first.png"><img src="03-route-first.png" alt="First-time route"></a>
+    <figcaption>03 — after selecting “Подаю впервые”</figcaption></figure>
+  <figure><a href="04-route-repeat.png"><img src="04-route-repeat.png" alt="Repeat route"></a>
+    <figcaption>04 — after selecting “Подаю повторно”</figcaption></figure>
+  <figure><a href="05-route-change-clicked.png"><img src="05-route-change-clicked.png" alt="Change route"></a>
+    <figcaption>05 — after activating “Сменить маршрут” (#rb-change)</figcaption></figure>
+  <figure><a href="06-step-login-ezus.png"><img src="06-step-login-ezus.png" alt="Step login eZUS"></a>
+    <figcaption>06 — instructional step anchored on #login-ezus</figcaption></figure>
+  <figure><a href="07-nav-jump-bar.png"><img src="07-nav-jump-bar.png" alt="Navigation bar"></a>
+    <figcaption>07 — navigation: route bar + jump controls</figcaption></figure>
+
+  <h2>Mobile 390×844 @2x</h2>
+  <figure><a href="08-mobile-full.jpg"><img src="08-mobile-full.jpg" alt="Mobile full page"></a>
+    <figcaption>08 — full page, initial state</figcaption></figure>
+  <figure><a href="09-mobile-repeat.png"><img src="09-mobile-repeat.png" alt="Mobile repeat route"></a>
+    <figcaption>09 — after selecting repeat route</figcaption></figure>
+
+  <h2>No-JavaScript control</h2>
+  <figure><a href="10-nojs-desktop.jpg"><img src="10-nojs-desktop.jpg" alt="JS disabled"></a>
+    <figcaption>10 — JavaScript disabled: 5 282 characters of text, 19 figures, 19 images, route fork present in the served HTML</figcaption></figure>
+
+  <p class="note">Each capture was produced from the live URL above in a real headless Chromium session. Screenshots are dated and traceable to the deployed commit in <a href="manifest.json">manifest.json</a>. No personal data is present on the page.</p>
+</main>
+</body>
+</html>
