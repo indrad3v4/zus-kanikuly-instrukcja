@@ -64,6 +64,9 @@ a{color:inherit}
 .choose button.pri{background:#fff;border-color:var(--navy);color:var(--ink)}
 .choose button.pri span{color:var(--muted)}
 .choose button.pri:hover{background:var(--panel)}
+.routebar{display:none;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px 14px;margin:6px 0 4px;font-size:14px;color:var(--muted)}
+.routebar.on{display:flex}
+.routebar button{border:0;background:none;color:var(--navy);font:600 14px var(--sans);text-decoration:underline;cursor:pointer;padding:6px 0}
 .jump{display:none;position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 0;overflow-x:auto}
 .jump a{display:flex;align-items:center;gap:7px;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:8px 13px;font-size:14px;white-space:nowrap;color:var(--muted)}
 .jump a b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px}
@@ -148,6 +151,7 @@ a{color:inherit}
 <div class="shell" id="shell">
 <nav class="side" id="side" aria-label="Шаги"></nav>
 <div class="main">
+<div class="routebar" id="routebar"><span id="rb-label"></span><button type="button" id="rb-change">Сменить маршрут</button></div>
 <nav class="jump" id="jump" aria-label="Шаги"><div class="jump-in"></div></nav>
 <div class="hero" id="hero">
   <h1>Wakacje składkowe: заявление RWS в eZUS</h1>
@@ -249,6 +253,8 @@ function buildSide(route){
     items.map(link).join('') +
     `<div class="switch"><button onclick="setRoute(null)">Изменить маршрут</button></div>`;
   jump.classList.add('on');
+  const rb=document.getElementById('routebar'); rb.classList.add('on');
+  document.getElementById('rb-label').textContent='Маршрут: '+(route==='repeat'?'подаю повторно':'подаю впервые');
   jump.querySelector('.jump-in').innerHTML = items.map(s => `<a href="#${s.id}" data-to="${s.id}"><b>${s.num}</b><span>${s.title}</span></a>`).join('');
   document.getElementById('tocm-in').innerHTML = items.map(link).join('');
   side.classList.add('on'); document.getElementById('shell').classList.add('routed');
@@ -284,9 +290,10 @@ const io = new IntersectionObserver(entries => {
 }, {rootMargin:'-45% 0px -45% 0px'});
 document.querySelectorAll('.step').forEach(s => io.observe(s));
 
+document.getElementById('rb-change').addEventListener('click',()=>{setRoute(null)});
 (function init(){
-  const r = localStorage.getItem(KEY);
-  if(r === 'first' || r === 'repeat') setRoute(r);
+  document.querySelectorAll('.step').forEach(s => s.style.display = 'none');
+  if(window.innerWidth <= 960){ document.getElementById('jump').classList.remove('on'); }
 })();
 </script>
 </body></html>
